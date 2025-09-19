@@ -1,0 +1,26 @@
+version: "3.8"
+
+services:
+  backend:
+    build: ./fashionbackend
+    container_name: fashion-backend
+    ports:
+      - "9000:9000"
+    networks:
+      - net-backend
+
+  frontend:
+    build: ./my-app
+    container_name: fashion-frontend
+    ports:
+      - "3000:80"
+    networks:
+      - net-backend
+    environment:
+      - REACT_APP_URL=http://backend:9000
+      - HOST=0.0.0.0
+      - PORT=3000
+
+networks:
+  net-backend:
+    driver: bridge
