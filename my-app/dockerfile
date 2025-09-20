@@ -1,25 +1,20 @@
-version: "3.8"
+# Stage 1: Build React app
+FROM node:18-alpine AS build
 
-services:
-  backend:
-    build: ./fashionbackend
-    container_name: fashion-backend
-    ports:
-      - "9000:9000"
-    networks:
-      - net-backend
+WORKDIR /my-app
+COPY package*.json ./
+RUN npm install
+COPY . .
 
-  frontend:
-    build:
-      context: ./my-app
-      args:
-        REACT_APP_URL: http://backend:9000   # Backend service name inside Docker
-    container_name: fashion-frontend
-    ports:
-      - "80:80"  
-    networks:
-      - net-backend
+# Pass environment variable to React build
+ARG REACT_APP_URL
+ENV REACT_APP_URL=$REACT_APP_URL
 
-networks:
-  net-backend:
-    driver: bridge
+RUN npm run build
+
+# Stage 2: Serve with Nginx
+FROM nginx:alpine
+COPY --from=build /my-app/build /usr/share/nginx/html
+
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
