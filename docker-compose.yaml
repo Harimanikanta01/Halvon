@@ -10,16 +10,17 @@ services:
       - net-backend
 
   frontend:
-    build: ./my-app
+    build:
+      context: ./my-app
+      args:
+        REACT_APP_URL: http://backend:9000
+        HOST: 0.0.0.0
+        PORT: 3000
     container_name: fashion-frontend
     ports:
       - "3000:80"
     networks:
       - net-backend
-    environment:
-      - REACT_APP_URL=http://backend:9000
-      - HOST=0.0.0.0
-      - PORT=3000
 
 networks:
   net-backend:
