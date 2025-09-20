@@ -13,7 +13,7 @@ services:
     build:
       context: ./my-app
       args:
-        REACT_APP_URL: http://backend:9000   
+        REACT_APP_URL: http://backend:9000   # Backend service name inside Docker
     container_name: fashion-frontend
     ports:
       - "80:80"  
