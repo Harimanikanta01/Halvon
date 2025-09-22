@@ -1,0 +1,64 @@
+name: MERN CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  # Frontend React CI
+  frontend:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: 'npm'
+
+      - name: Install dependencies (frontend)
+        run: npm ci
+        working-directory: frontend
+
+      - name: Run tests (frontend)
+        run: npm test -- --watchAll=false
+        working-directory: frontend
+
+      - name: Build React app
+        run: npm run build
+        working-directory: frontend
+
+  # Backend Express CI
+  backend:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: 'npm'
+
+      - name: Install dependencies (backend)
+        run: npm ci
+        working-directory: fashionbackend
+
+      # If you use Jest/Mocha for backend tests
+      - name: Run backend tests
+        run: npm test
+        working-directory: fashionbackend
+
+      # Optional: Lint check
+      - name: Run lint
+        run: npm run lint
+        working-directory: fashionbackend
