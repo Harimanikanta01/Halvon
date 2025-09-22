@@ -9,7 +9,7 @@ services:
 
   frontend:
     build:
-      context: ./my-app
+      context: ./frontend
       args:
         REACT_APP_URL: http://backend:9000   
     container_name: fashion-frontend
