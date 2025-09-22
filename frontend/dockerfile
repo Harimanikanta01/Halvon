@@ -1,13 +1,13 @@
 # Stage 1: Build React app
 FROM node:18-alpine AS build
 
-WORKDIR /app          # internal container path
-COPY package*.json ./ 
-RUN npm ci            # clean install
-COPY . .              # copy all frontend files
+WORKDIR /app
+COPY package*.json ./
+RUN npm install            # replace npm ci with npm install
+COPY . .
 ARG REACT_APP_URL
 ENV REACT_APP_URL=$REACT_APP_URL
-RUN npm run build     # build production-ready React app
+RUN npm run build
 
 # Stage 2: Serve with Nginx
 FROM nginx:alpine
