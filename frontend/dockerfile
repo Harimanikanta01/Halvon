@@ -1,7 +1,7 @@
 # Stage 1: Build React app
 FROM node:18-alpine AS build
 
-WORKDIR /app                 # Use /app instead of /my-app for simplicity
+WORKDIR /frontend                # Use /app instead of /my-app for simplicity
 COPY package*.json ./        # Copy package.json & package-lock.json
 RUN npm ci                   # Clean install for CI/CD consistency
 COPY . .                     # Copy all source files
