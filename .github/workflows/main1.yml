@@ -1,38 +1,22 @@
-name: MERN CI with Docker
-
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-
 jobs:
-  docker-build:
+  build-and-test:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # Set up Docker Compose (already pre-installed on ubuntu-latest)
       - name: Build services
-        run: docker-compose -f docker-compose.yaml build
+        run: docker compose -f docker-compose.yaml build
 
-      - name: Run services
-        run: docker-compose -f docker-compose.yaml up -d
+      - name: Start services
+        run: docker compose -f docker-compose.yaml up -d
 
-      # Optional: Check running containers
-      - name: List containers
-        run: docker ps -a
+      - name: Test backend
+        run: docker compose run --rm backend npm test
 
-      # Optional: Run backend tests (if test command is in backend container)
-      - name: Run backend tests
-        run: docker-compose run --rm backend npm test
+      - name: Test frontend
+        run: docker compose run --rm frontend npm test -- --watchAll=false
 
-      # Optional: Run frontend tests
-      - name: Run frontend tests
-        run: docker-compose run --rm frontend npm test -- --watchAll=false
-
-      # Cleanup after tests
-      - name: Shutdown services
-        run: docker-compose -f docker-compose.yaml down
+      - name: Stop services
+        run: docker compose -f docker-compose.yaml down
