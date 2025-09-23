@@ -64,7 +64,7 @@ app.post("/watchespost", async (req, res) => {
     const Nh = new watches(image);
     try {
         await Nh.save();
-        res.send('sended to database');
+        res.send('sended to database1');
         console.log('sended to database');
     } catch (error) {
         console.log(error);
