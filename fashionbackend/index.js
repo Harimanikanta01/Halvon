@@ -271,7 +271,7 @@ app.delete("/delete/:id", async (req, res) => {
     }
 });
 app.get("/",(req,res)=>{
-    res.send("ok")
+    res.send("ok1")
 })
 app.listen(9000,"0.0.0.0", () => {
     console.log("Server running on port 9000");
