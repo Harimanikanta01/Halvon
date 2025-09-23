@@ -270,7 +270,9 @@ app.delete("/delete/:id", async (req, res) => {
         console.log(error);
     }
 });
-
+app.get("/",(req,res)=>{
+    res.send("ok")
+})
 app.listen(9000,"0.0.0.0", () => {
     console.log("Server running on port 9000");
 });
