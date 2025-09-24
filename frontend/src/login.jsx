@@ -22,6 +22,8 @@ export default function Login() {
     try {
       setRes(bca.data);
       console.log(res);
+      alert("account created successfully")
+      navigate("sighnup")
     } catch (error) {
       console.log(error);
     }

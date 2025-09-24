@@ -27,7 +27,7 @@ const addCart = async (name, price, img1) => {
     return;
   }
   try {
-    const res = await axios.post("http://localhost:9000/cartpost", {
+    const res = await axios.post(`${backendurl}/cartpost`, {
       name,
       price,
       img1,
