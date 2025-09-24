@@ -11,7 +11,7 @@ const backendurl=(process.env.REACT_APP_URL).replace(/\/+$/, "");
       if (!token) return;
 
       try {
-        const response = await axios.get(`${backendurl}/profile1`, {
+        const response = await axios.get(`${backendurl}/profile`, {
           headers: { Authorization: `Bearer ${token}` },
         });
 
