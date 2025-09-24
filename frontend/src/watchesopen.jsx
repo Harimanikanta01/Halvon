@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { useParams } from "react-router-dom";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; 
-import './New.css'
+import './New.css';
 function Watchesopen() {
   const [data, setData] = useState([]);
   const { id } = useParams();

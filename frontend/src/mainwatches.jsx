@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import'./new.css'
+import './New.css';
 
 function Mainwatches() {
   const backendurl = (process.env.REACT_APP_URL).replace(/\/+$/, "");

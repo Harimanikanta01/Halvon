@@ -3,7 +3,7 @@ import axios from "axios";
 import { useState,useMemo } from "react";
 import AOS from "aos";
 import { useNavigate } from "react-router-dom";
-import './New.css'
+import './New.css';
 function Womens(){
 const [data,setData]=useState([])
 const backendurl=(process.env.REACT_APP_URL).replace(/\/+$/, "");

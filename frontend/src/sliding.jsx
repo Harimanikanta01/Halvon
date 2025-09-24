@@ -5,7 +5,7 @@ import { Carousel } from 'react-responsive-carousel';
 import AOS from 'aos';
 import { useNavigate } from "react-router-dom";
 import axios from 'axios'
-import './New.css'
+import './New.css';
 
 function Sliding(){
     const backendurl=(process.env.REACT_APP_URL).replace(/\/+$/, "");
