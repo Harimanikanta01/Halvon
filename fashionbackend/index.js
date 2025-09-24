@@ -64,7 +64,7 @@ app.post("/watchespost", async (req, res) => {
     const Nh = new watches(image);
     try {
         await Nh.save();
-        res.send('sended to database');
+        res.send('sended to database1');
         console.log('sended to database');
     } catch (error) {
         console.log(error);
@@ -270,7 +270,9 @@ app.delete("/delete/:id", async (req, res) => {
         console.log(error);
     }
 });
-
+app.get("/",(req,res)=>{
+    res.send("ok123")
+})
 app.listen(9000,"0.0.0.0", () => {
     console.log("Server running on port 9000");
 });

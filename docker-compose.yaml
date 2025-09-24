@@ -9,9 +9,9 @@ services:
 
   frontend:
     build:
-      context: ./my-app
+      context: ./frontend
       args:
-        REACT_APP_URL: http://backend:9000   
+        REACT_APP_URL: http://65.2.186.63:9000
     container_name: fashion-frontend
     ports:
       - "80:80"  
