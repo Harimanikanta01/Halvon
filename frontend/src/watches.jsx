@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import Aos from "aos";
 function Watches(){
-const backendurl=process.env.REACT_APP_URL
+const backendurl=(process.env.REACT_APP_URL).replace(/\/+$/, "");
 const [data,setData]=useState([])
 const Ab=async()=>{
     const res=await axios.get(`${backendurl}/watchesget`)

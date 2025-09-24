@@ -10,7 +10,7 @@ export default function Mainlogin() {
   });
   const navigate = useNavigate();
   const [res, setRes] = useState("");
-const backendurl=process.env.REACT_APP_URL
+const backendurl=(process.env.REACT_APP_URL).replace(/\/+$/, "");
   const change = (e) => {
     setName({ ...name, [e.target.name]: e.target.value });
   };

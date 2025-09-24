@@ -2,11 +2,11 @@ import React, { useEffect } from "react";
 import axios from "axios";
 import { useState,useMemo } from "react";
 import AOS from "aos";
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate } from "react-router-dom";
+import './New.css'
 function Womens(){
 const [data,setData]=useState([])
-const backendurl=process.env.REACT_APP_URL
+const backendurl=(process.env.REACT_APP_URL).replace(/\/+$/, "");
 const Ab=async()=>{
     const res=await axios.get(`${backendurl}/womensget`)
     setData(res.data)

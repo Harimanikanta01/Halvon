@@ -4,7 +4,7 @@ import axios from "axios";
 export default function Cart() {
     const [cartItems, setCartItems] = useState([]);
     const token = localStorage.getItem("token");
-   const Backendurl=process.env.REACT_APP_URL
+   const Backendurl=(process.env.REACT_APP_URL).replace(/\/+$/, "");
     useEffect(() => {
         const fetchCart = async () => {
             if (!token) {

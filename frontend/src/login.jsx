@@ -8,7 +8,7 @@ export default function Login() {
     "name": "",
     "password": ""
   });
-  const backendurl=process.env.REACT_APP_URL
+  const backendurl=(process.env.REACT_APP_URL).replace(/\/+$/, "");
   const navigate = useNavigate();
   const [res, setRes] = useState("");
 

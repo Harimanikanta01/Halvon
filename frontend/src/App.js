@@ -1,4 +1,4 @@
-import './App.css';
+import './New.css';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import AOS from 'aos';
@@ -30,7 +30,7 @@ function App() {
 
   return (
     <>
-      <header className="navbar-container" data-aos="fade-down">
+      <header className="navbar-container" >
         <div className="navbar-logo">
           <h2>Hilvon</h2>
         </div>

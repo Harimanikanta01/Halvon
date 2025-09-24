@@ -5,9 +5,10 @@ import { Carousel } from 'react-responsive-carousel';
 import AOS from 'aos';
 import { useNavigate } from "react-router-dom";
 import axios from 'axios'
+import './New.css'
 
 function Sliding(){
-    const backendurl=process.env.REACT_APP_URL
+    const backendurl=(process.env.REACT_APP_URL).replace(/\/+$/, "");
     const navigate=useNavigate()
 const Click=((id)=>{
     console.log(id)

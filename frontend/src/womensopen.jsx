@@ -7,7 +7,7 @@ import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // import carousel styles
 import { useNavigate } from "react-router-dom";
 function Womensopen() {
-  const backendurl=process.env.REACT_APP_URL
+  const backendurl=(process.env.REACT_APP_URL).replace(/\/+$/, "");
   const [data, setData] = useState([]);
   const { id } = useParams();
 const navigate=useNavigate()

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export default function Profile() {
   const [data, setData] = useState(null);
   const token = localStorage.getItem("token");
-const backendurl=process.env.REACT_APP_URL
+const backendurl=(process.env.REACT_APP_URL).replace(/\/+$/, "");
   useEffect(() => {
     const fetchProfile = async () => {
       if (!token) return;

@@ -4,7 +4,7 @@ import { useState } from "react";
 import Aos from "aos";
 function Best(){
 const [data,setData]=useState([])
-const backendurl=process.env.REACT_APP_URL
+const backendurl=(process.env.REACT_APP_URL).replace(/\/+$/, "");
 const Ab=async()=>{
     const res=await axios.get(`${backendurl}/bestget`)
     setData(res.data)

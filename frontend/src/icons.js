@@ -6,7 +6,7 @@ function Icons(){
     const navigate=useNavigate()
 const [data,setData]=useState([])
 const [op,setOp]=useState([])
-const backendurl=process.env.REACT_APP_URL
+const backendurl=(process.env.REACT_APP_URL).replace(/\/+$/, "");
 const Click=((id)=>{
 setOp(id)
 console.log(id)
