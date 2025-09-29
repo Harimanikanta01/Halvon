@@ -13,8 +13,8 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install          # Use npm install to avoid CI-only issues
 COPY . .
-ARG http://13.233.183.191:9000
-ENV REACT_APP_URL=http://13.233.183.191:9000
+ARG http://3.110.215.155:9000/
+ENV REACT_APP_URL=http://3.110.215.155:9000/
 RUN npm run build
 
 # Stage 2: Serve production build with Nginx
