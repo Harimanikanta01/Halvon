@@ -53,5 +53,5 @@ jobs:
 
             cd /home/ec2-user/Halvon
             git pull origin main
-            docker compose up -d --build
+            docker-compose up -d --build
          EOF
