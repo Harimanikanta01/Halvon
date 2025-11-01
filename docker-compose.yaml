@@ -11,7 +11,7 @@ services:
     build:
       context: ./frontend
       args:
-        REACT_APP_URL: http://3.110.215.155:9000/
+        REACT_APP_URL: http://54.91.88.163:9000/
     container_name: fashion-frontend
     ports:
       - "80:80"  
