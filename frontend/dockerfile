@@ -9,8 +9,8 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install         
 COPY . .
-ARG http://54.91.88.163:9000/
-ENV REACT_APP_URL=http://54.91.88.163:9000/
+ARG http://13.53.201.45:9000/
+ENV REACT_APP_URL=http://13.53.201.45:9000/
 RUN npm run build
 
 
